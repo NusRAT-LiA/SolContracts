@@ -1,0 +1,19 @@
+{
+  "name": "tokentransfer_truffle_dapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NusRAT-LiA/TokenTransfer_Truffle_DApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NusRAT-LiA/TokenTransfer_Truffle_DApp/issues"
+  },
+  "homepage": "https://github.com/NusRAT-LiA/TokenTransfer_Truffle_DApp#readme"
+}
