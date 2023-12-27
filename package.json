@@ -18,6 +18,7 @@
   "homepage": "https://github.com/NusRAT-LiA/TokenTransfer_Truffle_DApp#readme",
   "dependencies": {
     "@truffle/hdwallet-provider": "^2.1.15",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "web3": "^4.3.0"
   }
 }
