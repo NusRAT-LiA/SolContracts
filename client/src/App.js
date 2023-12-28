@@ -3,8 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import Web3 from 'web3';
 
-//const { REACT_APP_PROJECT_ID } = process.env;
-const alchemyUrl = `https://eth-goerli.g.alchemy.com/v2/${process.env.REACT_APP_PROJECT_ID}`;
+const alchemyUrl = `https://eth-sepolia.g.alchemy.com/v2/${process.env.REACT_APP_PROJECT_ID}`;
 const web3 = new Web3(alchemyUrl);
 
 function App() {
@@ -27,16 +26,7 @@ function App() {
         <p>
           {isConnected ? 'Connected to Alchemy' : 'Not connected to Alchemy'}
         </p>
-        {isConnected && (
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        )}
+       
       </header>
     </div>
   );
