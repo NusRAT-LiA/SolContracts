@@ -8,15 +8,25 @@ const web3 = new Web3(alchemyUrl);
 
 function App() {
   const [isConnected, setIsConnected] = useState(false);
+  const [isMetaMaskInstalled, setIsMetaMaskInstalled] = useState(false);
 
   useEffect(() => {
-    web3.eth.net.isListening()
-      .then(() => {
-        setIsConnected(true);
-      })
-      .catch(() => {
-        setIsConnected(false);
-      });
+    // Check if MetaMask is installed
+    if (window.ethereum) {
+      setIsMetaMaskInstalled(true);
+
+      // Check if connected to Alchemy via MetaMask
+      web3.eth.net.isListening()
+        .then(() => {
+          setIsConnected(true);
+        })
+        .catch(() => {
+          setIsConnected(false);
+        });
+    } else {
+      setIsMetaMaskInstalled(false);
+      setIsConnected(false);
+    }
   }, []);
 
   return (
@@ -24,9 +34,12 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          {isConnected ? 'Connected to Alchemy' : 'Not connected to Alchemy'}
+          {isMetaMaskInstalled
+            ? isConnected
+              ? 'Connected to Alchemy via MetaMask'
+              : 'Not connected to Alchemy via MetaMask'
+            : 'MetaMask is not installed'}
         </p>
-       
       </header>
     </div>
   );
