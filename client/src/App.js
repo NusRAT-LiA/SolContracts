@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Web3 from 'web3';
-//import contractABI from './contracts/MyToken.json';
 
 const alchemyUrl = `https://eth-sepolia.g.alchemy.com/v2/${process.env.REACT_APP_PROJECT_ID}`;
 const web3 = new Web3(alchemyUrl);
@@ -205,15 +204,17 @@ function App() {
 
   const handleEarnBalance = async () => {
     try {
-      const valueToAdd = 10; // Example value to add to the balance, you can modify this
-      await MyContract.methods.earnAdditionalBalance(valueToAdd).send({ from: userAccount });
+      
+      await MyContract.methods.earnAdditionalBalance(valueToAdd)
+        .send({ from: userAccount, gas, gasPrice });
+  
       // Transaction successful, update UI or show a success message
     } catch (error) {
       // Handle error
       console.error(error);
     }
   };
-
+  
   const handleTransferTokens = async (toAddress, amount) => {
     try {
       await MyContract.methods.transfer(toAddress, amount).send({ from: userAccount });
